@@ -2,26 +2,28 @@ package org.example;
 
 
 import java.util.Scanner;
+import  java.util.logging.*;
 public class Students
 {
     String name;
-    int grade;
-    int gpa;
+    int Grade;
+    int Gpa;
     Scanner s=new Scanner(System.in);
     Scanner c=new Scanner(System.in);
+    Logger l=Logger.getLogger("tyler");
 
     Students()
     {
-        System.out.println("enter your name:");
+        l.info("enter your name:");
         String a=c.next();
         name=a;
-        System.out.println("Enter your Grade From one to five Level");
+        l.info("Enter your Grade From one to five Level");
         int b=s.nextInt();
-        grade=b;
-        System.out.println("enter your GPA :");
+        Grade=b;
+        l.info("enter your GPA :");
         int d=s.nextInt();
-        gpa=d;
-        System.out.println("If you want to update your Gps: \n 1.yes \n 2.NO");
+        Gpa=d;
+        l.info("If you want to update your Gps: \n 1.yes \n 2.NO");
         int sel=s.nextInt();
         if (sel==1)
         {
@@ -34,19 +36,19 @@ public class Students
     }
     void update()
     {
-        System.out.println("Enter your Updated Gpa:");
+        l.info("Enter your Updated Gpa:");
         int e=s.nextInt();
-        gpa=e;
+        Gpa=e;
         show();
     }
     void show()
     {
-        System.out.println(name+ " have scored" + " Grade Level Of "+ grade + " and GPA of "+ gpa);
+        l.log(Level.INFO, () ->name+ " have scored" + " Grade Level Of "+ Grade + " and GPA of "+ Gpa);
     }
 
     public static void main(String[] args)
+
     {
         Students ragul=new Students();
-        ragul.show();
     }
 }
